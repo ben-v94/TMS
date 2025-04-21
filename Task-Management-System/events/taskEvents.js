@@ -8,5 +8,4 @@ export const taskStatusUpdated = async (task) => {
     const recipient = task.assigned_to === task.sender_id ? task.assigned_to : task.sender_id;
     await triggerTaskStatusUpdated(task, recipient);
 };
-  
 

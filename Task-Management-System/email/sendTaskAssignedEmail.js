@@ -1,12 +1,16 @@
 import User from '../models/User.js';
 import { sendEmail } from '../services/emailService.js';
 
+const URL =  `http://${process.env.HOST}:${process.env.PORT}`;
+
 export const sendTaskAssignedEmail = async (task) => {
   try {
+    
     const assignedUser = await User.findByPk(task.assigned_to);
     if (!assignedUser) return;
 
-    const taskUrl = `http://localhost:8080/tasks/${task.id}`;
+    const taskUrl = `${URL}/tasks/${task.id}`;
+
     const subject = 'New Task Assigned';
     const body = `A new task has been assigned: ${taskUrl}`;
 

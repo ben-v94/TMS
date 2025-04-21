@@ -7,7 +7,7 @@ import { isAfter, parseISO } from 'date-fns';
 import { createAssignedEmailLog, createCompletedEmailLog  } from '../services/createEmailLogs.js';
 
 
-const JWT_SECRET = 'key';
+const JWT_SECRET = process.env.JWT_SECRET;
 
 export const getAllTasks = async (req, res) => {
   try {
