@@ -7,8 +7,6 @@ const URL =  `http://${process.env.HOST}:${process.env.PORT}`;
 
 
 cron.schedule('*/10 * * * * *',  async () => {
-  console.log('Cron job: task reminders');
-  console.log(URL);  
   const today = new Date();
   const users = await User.findAll({
       include: { model:Task,},
