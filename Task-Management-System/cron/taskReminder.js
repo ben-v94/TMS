@@ -6,7 +6,7 @@ import {sendEmail} from '../services/emailService.js';
 const URL =  `http://${process.env.HOST}:${process.env.PORT}`;
 
 
-cron.schedule('*/10 * * * * *',  async () => {
+cron.schedule('0 10 * * *',  async () => {
   const today = new Date();
   const users = await User.findAll({
       include: { model:Task,},
